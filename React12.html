@@ -1,0 +1,184 @@
+<!-- more about jsx -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+
+    <title>JSX </title>
+</head>
+
+<style>
+    #container {
+        padding: 50px;
+        background-color: #FFF;
+        margin-left: 35%;
+        margin-top: 0%;
+    }
+
+    .colorSquare {
+        box-shadow: 0px 0px 25px 0px #333;
+        width: 300px;
+        height: 300px;
+        border-radius: 20%;
+        margin-bottom: 15px;
+    }
+
+    .colorArea input {
+        margin-top: 3%;
+        padding: 20px;
+        font-size: 16px;
+        border: 2px solid #CCC;
+    }
+
+    .colorArea button {
+        margin-top: 3%;
+        padding: 20px;
+        font-size: 16px;
+        margin: 10px;
+        background-color: #666;
+        color: #FFF;
+        border: 2px solid #666;
+    }
+
+    .colorArea button:hover {
+        background-color: #111;
+        border-color: #111;
+        cursor: pointer;
+    }
+
+    #colorHeading {
+        padding :0;
+        margin: 0;
+        margin-bottom: -20px;
+        font-family: sans-serif;
+        margin-top: 10%;
+        margin-left: 35%;
+        font-size: 50px;
+       
+    }
+
+</style>
+<body>
+    
+
+
+<!-- refs are use for targeting dom elements  -->
+<!-- portals are used for tagetting elements which are not in dom hirarchy -->
+
+<div id="colorHeading">  </div>
+<div id="container">  </div>
+
+<script type="text/babel">
+
+
+var destination = document.querySelector('#container');
+var heading  = document.querySelector('#colorHeading');
+
+
+class ColorLabel extends React.Component {
+    render() 
+    {
+    var bgcolor = {
+        color : this.props.textcolor 
+    };
+
+        return  ReactDOM.createPortal(
+             <p style={bgcolor}>COLORIZER : {this.props.color} </p>
+             , heading
+        )
+    }
+}
+
+
+class Colorizer extends React.Component {
+
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             color: "",
+             bgColor: "green"
+        };
+        this.colorValue = this.colorValue.bind(this);
+        this.setNewColor = this .setNewColor.bind(this);
+
+    }
+
+    colorValue(e) {
+        this.setState({
+            color:  e.target.value 
+        });
+    }
+
+    setNewColor(e) {
+        this.setState({
+            bgColor: this.state.color 
+        });
+
+      this._input.focus();
+      this._input.value = "";
+        e.preventDefault(); 
+    }
+
+
+
+
+    render () {
+        var sqaureStyle = {
+            backgroundColor: this.state.bgColor,
+            
+        };
+        var self = this;
+     
+        return (
+            <div className="colorArea">
+                <div style={sqaureStyle} className="colorSquare" > </div>
+                
+                <form onSubmit={this.setNewColor}> 
+                    <input 
+                    onChange={this.colorValue} 
+                    placeholder="Enter a color Value"
+                    ref = {
+
+                        (el) => this._input = el
+
+                        // function(el) {
+                        //     self._input= el;
+                        // }
+                    }
+                    >
+                     </input> 
+
+                     <button type="submit"> GO </button>
+
+                    </form>
+                    <ColorLabel color={this.state.bgColor} textcolor={this.state.bgColor} />
+                   
+                </div>
+        );
+    }
+
+}
+
+
+
+ReactDOM.render(
+    
+        <Colorizer />,
+        destination
+)
+
+</script>
+
+</body>
+</html>

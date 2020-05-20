@@ -1,0 +1,62 @@
+<!-- React in react  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+
+    <title>React</title>
+</head>
+
+
+<style>
+
+h1{
+    color: #e67e22;
+}
+h2{
+    color: #9b59b6;
+}
+</style>
+
+<body>
+    
+
+<div id="container1"> 
+
+</div>
+
+<div id="container2">
+
+</div>
+
+
+
+<script type="text/babel">
+
+var destination1 =    document.querySelector('#container1') ;
+var destination2 = document.querySelector('#container2');
+ 
+ReactDOM.render(
+<div>
+    <h1>Iron Man  </h1>
+    <h2> Thor </h2>
+    <h2> Hulk </h2>
+    <h2> Thanos </h2>
+</div>,
+    destination2
+  
+);
+    
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!-- more Events Handling -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+
+    <title>JSX </title>
+</head>
+<body>
+    
+<div id="container">  </div>
+
+<script type="text/babel">
+
+
+var destination = document.querySelector('#container');
+
+
+class Toggle extends React.Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             isToggleOn: true
+        }
+        this.handleClick = this.handleClick.bind(this);
+    }
+    
+handleClick() {
+    this.setState( prevState => ({
+        isToggleOn: !prevState.isToggleOn
+    }));
+}
+
+
+render() {
+    return(
+        <button onClick={this.handleClick} > {this.state.isToggleOn ? 'ON' : "OFF"}  </button>
+    )
+}
+
+}
+
+
+ReactDOM.render(
+    
+       <div> 
+        <Toggle />
+        </div>,
+        destination
+)
+
+</script>
+
+</body>
+</html>

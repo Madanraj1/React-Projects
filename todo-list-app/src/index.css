@@ -1,0 +1,15 @@
+body {
+    padding : 50px;
+    background-color: #353b48 ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+#container { 
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
