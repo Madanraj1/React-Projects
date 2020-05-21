@@ -1,0 +1,54 @@
+body {
+  background-color: #2c3e50;
+  margin: 0;
+}
+
+.game {
+  margin: 0;
+  margin-left: 40%;
+  
+}
+
+.game-board{
+    margin: 0;
+    margin-top: 10%;
+
+}
+
+.status {
+  color: #c7ecee;
+  font-size: 50px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+  margin: 0;
+  
+}
+.board {
+  margin: 0;
+  margin-top: 6%;
+  margin-left: 5%;
+}
+
+.square {
+  background: #2c3e50;
+  border: 1px solid #c7ecee;
+  color: #c7ecee;
+  float: left;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 34px;
+  height: 80px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 80px;
+}
+
+.square:focus{
+  outline: none;
+}
